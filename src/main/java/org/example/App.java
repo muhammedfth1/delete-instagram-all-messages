@@ -38,4 +38,31 @@ public class App {
     public void forClick(By Locator){
         driver.findElement(Locator).click();
     }
+
+    public void login(String username , String password){
+        locatorWait(usernameLocator);
+        driver.findElement(usernameLocator).sendKeys(username);
+        driver.findElement(passwordLocator).sendKeys(password);
+        forClick(loginButtonLocator);
+    }
+
+    public void goToMessagesBox(){
+        locatorWait(goMessages);
+        forClick(goMessages);
+        locatorWait(nextControl);
+        forClick(nextControl);
+    }
+
+    public void deleteMessages(){
+        for (int i = 0; i < 20; i++) {
+            locatorWait(messagesBox);
+            forClick(messagesBox);
+            locatorWait(attentionLocator);
+            forClick(attentionLocator);
+            locatorWait(firstDeleteButton);
+            forClick(firstDeleteButton);
+            locatorWait(secondDeleteButton);
+            forClick(secondDeleteButton);
+        }
+    }
 }
